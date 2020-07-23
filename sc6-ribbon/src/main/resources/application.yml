@@ -9,3 +9,11 @@ eureka:
   client:
     service-url:
       defaultZone: http://eureka1:2001/eureka
+
+ribbon:
+  #　更换实例的次数
+  MaxAutoRetriesNextServer: 2
+  # 当前实例重试次数，尝试失败会更换下一个实例
+  MaxAutoRetries: 1
+  # 对连接超时、读取超时都进行重试
+  OkToRetryOnAllOperations: true
