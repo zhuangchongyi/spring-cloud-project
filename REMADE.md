@@ -1,0 +1,6 @@
+- spring-cloud-project
+    - sc1-common
+    - sc2-item-service
+    - sc3-user-service
+    - sc4-order-service
+    - sc5-eureka

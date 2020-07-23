@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: order-service
+
+server:
+  port: 8201
+
+eureka:
+  client:
+    service-url:
+      #默认位置，可以修改为具体地理位置
+      defaultZone: http://eureka1:2001/eureka
+    #拉取注册信息间隔时间，默认 30 秒
+    registry-fetch-interval-seconds: 30
+  instance:
+    # 心跳间隔时间，默认 30 秒
+    lease-renewal-interval-in-seconds: 30

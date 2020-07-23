@@ -1,0 +1,18 @@
+spring:
+  application:
+    name: item-service
+
+server:
+  port: 8001
+
+
+eureka:
+  client:
+    service-url:
+      #\u9ED8\u8BA4\u4F4D\u7F6E\uFF0C\u53EF\u4EE5\u4FEE\u6539\u4E3A\u5177\u4F53\u5730\u7406\u4F4D\u7F6E
+      defaultZone: http://eureka1:2001/eureka
+    #\u62C9\u53D6\u6CE8\u518C\u4FE1\u606F\u95F4\u9694\u65F6\u95F4\uFF0C\u9ED8\u8BA4 30 \u79D2
+    registry-fetch-interval-seconds: 30
+  instance:
+    # \u5FC3\u8DF3\u95F4\u9694\u65F6\u95F4\uFF0C\u9ED8\u8BA4 30 \u79D2
+    lease-renewal-interval-in-seconds: 30
