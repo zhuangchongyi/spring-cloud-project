@@ -1,0 +1,13 @@
+spring:
+  profiles: eureka2
+
+server:
+  port: 2002
+
+# eureka2 向 eureka1 注册
+eureka:
+  instance:
+    hostname: eureka2
+  client:
+    service-url:
+      defaultZone: http://eureka1:2001/eureka
