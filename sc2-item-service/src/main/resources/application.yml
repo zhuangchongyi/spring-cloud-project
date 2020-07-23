@@ -2,7 +2,7 @@ spring:
   application:
     name: item-service
   profiles:
-    active: item2
+    active: item1
 
 #server:
 #  port: 8001
