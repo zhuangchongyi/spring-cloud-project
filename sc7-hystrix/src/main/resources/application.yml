@@ -1,6 +1,6 @@
 spring:
   application:
-    name: ribbon
+    name: hystrix
 
 server:
   port: 3001
@@ -17,3 +17,13 @@ ribbon:
   MaxAutoRetries: 1
   # 对连接超时、读取超时都进行重试
   OkToRetryOnAllOperations: true
+
+
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            # 短路超时设置
+            timeoutInMilliseconds: 500
