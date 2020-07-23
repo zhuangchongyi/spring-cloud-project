@@ -11,4 +11,5 @@
         <module>sc1-common</module>
     </modules>
     <packaging>pom</packaging>
+
 </project>
