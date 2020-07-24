@@ -1,0 +1,40 @@
+spring:
+  application:
+    name: item-service
+  profiles:
+    active: item1
+  # 访问地址 http://192.168.131.139:15672
+  rabbitmq:
+    addresses: 192.168.131.139
+    port: 5672
+    username: root
+    password: root
+    
+#server:
+#  port: 8001
+
+
+eureka:
+  client:
+    service-url:
+      #默认位置，可以修改为具体地理位置
+      defaultZone: http://eureka1:2001/eureka,http://eureka2:2002/eureka
+    #拉取注册信息间隔时间，默认 30 秒
+    registry-fetch-interval-seconds: 30
+  instance:
+    # 心跳间隔时间，默认 30 秒
+    lease-renewal-interval-in-seconds: 30
+
+
+---
+spring:
+  profiles: item1
+
+server:
+  port: 8001
+---
+spring:
+  profiles: item2
+
+server:
+  port: 8002

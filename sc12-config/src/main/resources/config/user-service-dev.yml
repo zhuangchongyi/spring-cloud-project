@@ -1,0 +1,35 @@
+sp:
+  user-service:
+    users: "[{\"id\":7, \"username\":\"abc\",\"password\":\"123\"},{\"id\":8, \"username\":\"def\",\"password\":\"456\"},{\"id\":9, \"username\":\"ghi\",\"password\":\"789\"},{\"id\":99, \"username\":\"aaa\",\"password\":\"111\"}]"
+
+spring:
+  application:
+    name: user-service
+  # 访问地址 http://192.168.131.139:15672
+  rabbitmq:
+    addresses: 192.168.131.139
+    port: 5672
+    username: root
+    password: root
+    
+server:
+  port: 8101
+
+
+eureka:
+  client:
+    service-url:
+      #默认位置，可以修改为具体地理位置
+      defaultZone: http://eureka1:2001/eureka,http://eureka2:2002/eureka
+    #拉取注册信息间隔时间，默认 30 秒
+    registry-fetch-interval-seconds: 30
+  instance:
+    # 心跳间隔时间，默认 30 秒
+    lease-renewal-interval-in-seconds: 30
+    
+# 暴露端点
+management:
+ endpoints:
+    web:
+     exposure:
+        include: refresh

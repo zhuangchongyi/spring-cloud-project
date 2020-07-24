@@ -1,22 +1,30 @@
 spring:
   application:
     name: config-server
+  profiles:
+    active: native
   cloud:
     config:
       server:
-        git:
-          uri: http://192.168.131.128/root/spring-config.git # \u672C\u5730\u642D\u5EFA\u7684GitLab
-         #searchPaths: config #\u914D\u7F6E\u6587\u4EF6\u641C\u7D22\u8DEF\u5F84\uFF0C\u53EF\u7528,\u5206\u5272\u591A\u4E2A\u8DEF\u5F84\u3002\u6211\u653E\u5728\u6839\u76EE\u5F55\u65E0\u9700\u914D\u7F6E
-          username: root # gitlab\u8D26\u53F7
-          password: gitlab2020 # gitlab\u5BC6\u7801
-          # \u6D4B\u8BD5\u662F\u5426\u8BFB\u53D6\u6210\u529F http://localhost:6001/zuul/dev
-  # \u914D\u7F6Erabbitmq\u8FDE\u63A5\u4FE1\u606F
+        #读取本地配置文件
+        native:
+          search-locations: classpath:/config
+        #读取git配置文件
+  #        git:
+  #          uri: http://192.168.131.128/root/spring-config.git # 本地搭建的GitLab
+  #         #searchPaths: config #配置文件搜索路径，可用,分割多个路径。我放在根目录无需配置
+  #          username: root # gitlab账号
+  #          password: gitlab2020 # gitlab密码
+  #          # 测试是否读取成功 http://localhost:6001/zuul/dev
+
+
+  # 配置rabbitmq连接信息
   rabbitmq:
     host: 192.168.131.139
     port: 5672
     username: root
     password: root
-#\u66B4\u9732 bus-refresh \u76D1\u63A7\u7AEF\u70B9
+#暴露 bus-refresh 监控端点
 management:
   endpoints:
     web:

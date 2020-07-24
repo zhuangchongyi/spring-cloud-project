@@ -1,7 +1,13 @@
 spring:
   application:
     name: turbine
-
+  # 访问地址 http://192.168.131.139:15672
+  rabbitmq:
+    addresses: 192.168.131.139
+    port: 5672
+    username: root
+    password: root
+    
 server:
   port: 5001
 
