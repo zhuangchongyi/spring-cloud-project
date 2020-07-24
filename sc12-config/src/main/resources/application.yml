@@ -10,12 +10,12 @@ spring:
         native:
           search-locations: classpath:/config
         #读取git配置文件
-  #        git:
-  #          uri: http://192.168.131.128/root/spring-config.git # 本地搭建的GitLab
-  #         #searchPaths: config #配置文件搜索路径，可用,分割多个路径。我放在根目录无需配置
-  #          username: root # gitlab账号
-  #          password: gitlab2020 # gitlab密码
-  #          # 测试是否读取成功 http://localhost:6001/zuul/dev
+#        git:
+#          uri: http://192.168.131.128/root/spring-config.git # 本地搭建的GitLab
+#         #searchPaths: config #配置文件搜索路径，可用,分割多个路径。我放在根目录无需配置
+#          username: root # gitlab账号
+#          password: gitlab2020 # gitlab密码
+#          # 测试是否读取成功 http://localhost:6001/zuul/dev
 
 
   # 配置rabbitmq连接信息
