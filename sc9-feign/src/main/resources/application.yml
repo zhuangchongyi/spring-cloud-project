@@ -11,6 +11,8 @@ eureka:
       defaultZone: http://eureka1:2001/eureka, http://eureka2:2002/eureka
 
 # \u65E0\u9700\u989D\u5916\u914D\u7F6E\uFF0Cfeign \u9ED8\u8BA4\u5DF2\u542F\u7528\u4E86 ribbon \u8D1F\u8F7D\u5747\u8861\u548C\u91CD\u8BD5\u673A\u5236\u3002\u53EF\u4EE5\u901A\u8FC7\u914D\u7F6E\u5BF9\u53C2\u6570\u8FDB\u884C\u8C03\u6574
+#ribbon.xxx \u5168\u5C40\u914D\u7F6E
+#item-service.ribbon.xxx \u5BF9\u7279\u5B9A\u670D\u52A1\u5B9E\u4F8B\u7684\u914D\u7F6E
 ribbon:
   ConnectTimeout: 1000
   ReadTimeout: 1000
@@ -21,3 +23,18 @@ item-service:
     ReadTimeout: 1000
     MaxAutoRetriesNextServer: 2
     MaxAutoRetries: 1
+
+
+#feign \u9ED8\u8BA4\u6CA1\u6709\u542F\u7528 hystrix\uFF0C\u6DFB\u52A0\u914D\u7F6E\uFF0C\u542F\u7528 hystrix
+feign:
+  hystrix:
+    enabled: true
+
+#\u6DFB\u52A0\u914D\u7F6E\uFF0C\u6682\u65F6\u51CF\u5C0F\u964D\u7EA7\u8D85\u65F6\u65F6\u95F4\uFF0C\u4EE5\u4FBF\u540E\u7EED\u5BF9\u964D\u7EA7\u8FDB\u884C\u6D4B\u8BD5
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 500
