@@ -18,12 +18,27 @@ ribbon:
   # 对连接超时、读取超时都进行重试
   OkToRetryOnAllOperations: true
 
-
+#hystrix 配置 https://github.com/Netflix/Hystrix/wiki/Configuration
 hystrix:
   command:
     default:
       execution:
         isolation:
           thread:
-            # 短路超时设置
-            timeoutInMilliseconds: 500
+            #请求超时时间，超时后触发失败降级
+            timeoutInMilliseconds: 1500
+      circuitBreaker:
+        #10秒内请求数量，默认20，如果没有达到该数量，即使请求全部失败，也不会触发断路器打开
+        requestVolumeThreshold: 20
+        #断路器打开多长时间后，再次允许尝试访问（半开），仍失败则继续保持打开状态，如成功访问则关闭断路器，默认 5000
+        sleepWindowInMilliseconds: 5000
+        #失败请求百分比，达到该比例则触发断路器打开
+        errorThresholdPercentage: 50
+
+
+# 暴露 hystrix 监控端点
+management:
+  endpoints:
+    web:
+      exposure:
+        include: hystrix.stream # 暴露所有端点，可以用 "*"
