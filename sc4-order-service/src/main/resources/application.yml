@@ -1,9 +1,11 @@
 spring:
   application:
     name: order-service
+  profiles:
+    active: order1
 
-server:
-  port: 8201
+#server:
+#  port: 8201
 
 eureka:
   client:
@@ -15,3 +17,27 @@ eureka:
   instance:
     # 心跳间隔时间，默认 30 秒
     lease-renewal-interval-in-seconds: 30
+
+feign:
+  hystrix:
+    enabled: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: hystrix.stream
+
+---
+spring:
+  profiles: order1
+
+server:
+  port: 8201
+
+---
+spring:
+  profiles: order2
+
+server:
+  port: 8202
