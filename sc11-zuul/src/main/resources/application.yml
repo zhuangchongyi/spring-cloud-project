@@ -9,9 +9,38 @@ eureka:
   client:
     service-url:
       defaultZone: http://eureka1:2001/eureka, http://eureka2:2002/eureka
+#zuul \u8DEF\u7531\u914D\u7F6E\u53EF\u4EE5\u7701\u7565\uFF0C\u7F3A\u7701\u4EE5\u670D\u52A1 id \u4F5C\u4E3A\u8BBF\u95EE\u8DEF\u5F84
+#zuul:
+#  routes:
+#    item-service: /item-service/**
+#    user-service: /user-service/**
+#    order-service: /order-service/**
 
+
+#zuul \u5DF2\u7ECF\u96C6\u6210\u4E86 ribbon\uFF0C\u9ED8\u8BA4\u5DF2\u7ECF\u5B9E\u73B0\u4E86\u8D1F\u8F7D\u5747\u8861
+#\u9700\u8981\u5F00\u542F\u91CD\u8BD5\uFF0C\u9ED8\u8BA4\u4E0D\u5F00\u542F\uFF0C\u9700\u6DFB\u52A0spring-retry\u4F9D\u8D56
 zuul:
-  routes:
-    item-service: /item-service/**
-    user-service: /user-service/**
-    order-service: /order-service/**
+  retryable: true
+#\u914D\u7F6E zuul \u5F00\u542F\u91CD\u8BD5\uFF0C\u5E76\u914D\u7F6E ribbon \u91CD\u8BD5\u53C2\u6570
+ribbon:
+  ConnectTimeout: 1000
+  ReadTimeout: 1000
+  MaxAutoRetriesNextServer: 1
+  MaxAutoRetries: 1
+
+#\u8BBE\u7F6E hystrix \u8D85\u65F6\u65F6\u95F4
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 500
+
+#\u66B4\u9732 hystrix.stream \u76D1\u63A7\u7AEF\u70B9
+management:
+  endpoints:
+    web:
+      exposure:
+        include: hystrix.stream
+

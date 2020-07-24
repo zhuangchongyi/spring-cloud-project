@@ -11,5 +11,5 @@ eureka:
       defaultZone: http://eureka1:2001/eureka, http://eureka2:2002/eureka
 
 turbine:
-  app-config: order-service,feign
+  app-config: order-service,zuul # \u805A\u5408 zuul \u670D\u52A1\u5B9E\u4F8B
   cluster-name-expression: new String("default")
