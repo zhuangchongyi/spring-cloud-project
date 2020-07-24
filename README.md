@@ -31,9 +31,12 @@
     - sc8-hystrix-dashboard hystrix监控仪表盘
     - sc9-feign 代替 hystrix+ribbon,提供了声明式消费者客户端
     - sc10-turbine 汇集监控信息，将聚合后的信息提供给hystrix-dashboard来集中展示和监控
+    - sc11-zuul  Zuul API网关，为微服务应用提供统一的对外访问接口
+    
+    
 
 
-修改hosts文件
+> 修改hosts文件
 ```
 C:\Windows\System32\drivers\etc\hosts
 # 添加内容：
