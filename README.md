@@ -29,6 +29,8 @@
     - sc6-ribbon 服务消费者
     - sc7-hystrix 断路器
     - sc8-hystrix-dashboard hystrix监控仪表盘
+    - sc9-feign 代替 hystrix+ribbon,提供了声明式消费者客户端
+    - sc10-turbine 汇集监控信息，将聚合后的信息提供给hystrix-dashboard来集中展示和监控
 
 
 修改hosts文件
